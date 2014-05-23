@@ -9,7 +9,8 @@ SPACING = " " * 30
 command_list = {
 
 "satoshi": (
-"MISC",
+"UTILITY",
+"SATOSHI MATH",
 "Convert Bitcoins into Satoshis.",
 
 """\
@@ -19,7 +20,8 @@ Convert Bitcoins into Satoshis.\
 ),
 
 "btc": (
-"MISC",
+"UTILITY",
+"SATOSHI MATH",
 "Convert Satoshis into Bitcoins.",
 
 """\
@@ -29,7 +31,8 @@ Convert Satoshis into Bitcoins.\
 ),
 
 "showscript": (
-"TRANSACTION PARSING",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Show the details of a raw script.",
 
 """\
@@ -39,6 +42,7 @@ Show the details of a raw script.\
 ),
 
 "scripthash": (
+"OFFLINE KEYS AND ADDRESSES",
 "MULTISIG ADDRESSES",
 "Create BIP 16 script hash address from raw script hex.",
 
@@ -57,7 +61,8 @@ EXAMPLE:
 ),
 
 "rawscript": (
-"CREATE TRANSACTIONS",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Create the raw hex representation from a script.",
 
 """\
@@ -73,7 +78,8 @@ EXAMPLE:
 ),
 
 "initchain": (
-"MISC",
+"ONLINE (OBELISK)",
+"OBELISK ADMIN",
 "Initialize a new blockchain.",
 
 """\
@@ -83,7 +89,8 @@ Initialize a new blockchain.\
 ),
 
 "wallet": (
-"MISC",
+"EXPERIMENTAL",
+"APPS",
 "Experimental command line wallet.",
 
 """\
@@ -93,6 +100,7 @@ This is an experimental prototype.\
 ),
 
 "monitor": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN WATCHING",
 "Monitor an address.",
 
@@ -103,7 +111,8 @@ Monitor an address.\
 ),
 
 "validaddr": (
-"FORMAT",
+"OFFLINE KEYS AND ADDRESSES",
+"BASIC",
 "Validate an address.",
 
 """\
@@ -113,6 +122,7 @@ Validate an address.\
 ),
 
 "validtx": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Validate a transaction.",
 
@@ -123,17 +133,19 @@ Query blockchain whether transaction has been confirmed.\
 ),
 
 "pubkey": (
-"LOOSE KEYS AND ADDRESSES",
+"OFFLINE KEYS AND ADDRESSES",
+"BASIC",
 "See the public part of a private key.",
 
 """\
 Usage: sx pubkey
-Read private key from STDIN and output the public key.\
+Read private key from STDIN and output the public key. 
 """
 ),
 
 "addr": (
-"LOOSE KEYS AND ADDRESSES",
+"OFFLINE KEYS AND ADDRESSES",
+"BASIC",
 "See Bitcoin address of a public or private key.",
 
 """\
@@ -143,7 +155,8 @@ Read public or private key from STDIN and output Bitcoin address.\
 ),
 
 "ripemd-hash": (
-"FORMAT",
+"UTILITY",
+"HASHES",
 "RIPEMD hash data from STDIN.",
 
 """\
@@ -153,7 +166,8 @@ RIPEMD hash data from STDIN.\
 ),
 
 "wrap": (
-"FORMAT",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Adds version byte and checksum to hexstring.",
 
 """\
@@ -163,7 +177,8 @@ Adds version byte and checksum to hexstring.\
 ),
 
 "unwrap": (
-"FORMAT",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Validates checksum and recovers version byte and original data from hexstring.",
 
 """\
@@ -173,7 +188,8 @@ Validates checksum and recovers version byte and original data from hexstring.\
 ),
 
 "base58-decode": (
-"FORMAT",
+"UTILITY",
+"FORMAT (BASE 58)",
 "Convert from base58 to hex",
 
 """\
@@ -183,7 +199,8 @@ Convert from base58 to hex.\
 ),
 
 "base58-encode": (
-"FORMAT",
+"UTILITY",
+"FORMAT (BASE 58)",
 "Convert from hex to base58",
 
 """\
@@ -193,7 +210,8 @@ Convert from hex to base58.\
 ),
 
 "base58check-decode": (
-"FORMAT",
+"UTILITY",
+"FORMAT (BASE58CHECK)",
 "Convert from base58check to hex",
 
 """\
@@ -203,7 +221,8 @@ Convert from base58check to hex.\
 ),
 
 "base58check-encode": (
-"FORMAT",
+"UTILITY",
+"FORMAT (BASE58CHECK)",
 "Convert from hex to base58check",
 
 """\
@@ -213,6 +232,7 @@ Convert from hex to base58check.\
 ),
 
 "sendtx-obelisk": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN UPDATES",
 "Send tx to obelisk server.",
 
@@ -226,6 +246,7 @@ Broadcast the transaction to an obelisk server for the network.
 ),
 
 "sendtx-p2p": (
+"ONLINE (BITCOIN P2P)",
 "BLOCKCHAIN UPDATES",
 "Send tx to bitcoin network.",
 
@@ -239,6 +260,7 @@ Broadcast the transaction to the Bitcoin network.
 ),
 
 "sendtx-bci": (
+"ONLINE (BLOCKCHAIN.INFO)",
 "BLOCKCHAIN UPDATES",
 "Send tx to blockchain.info/pushtx.",
 
@@ -252,6 +274,7 @@ Push tx to blockchain.info/pushtx.
 ),
 
 "blke-fetch-transaction": (
+"ONLINE (BLOCKEXPLORER.COM)",
 "BLOCKCHAIN QUERIES (blockexplorer.com)",
 "Fetches a transaction from blockexplorer.com",
 
@@ -266,7 +289,8 @@ Fetches a transaction from blockexplorer.com
 ),
 
 "genpriv": (
-"DETERMINISTIC KEYS AND ADDRESSES",
+"DEPRECATED",
+"ELECTRUM STYLE DETERMINISTIC KEYS AND ADDRESSES",
 "Generate a private key deterministically from a seed.",
 
 """\
@@ -282,9 +306,9 @@ Generate private keys from a wallet seed.
 ),
 
 "genpub": (
-"DETERMINISTIC KEYS AND ADDRESSES",
-"Generate a public key deterministically from a wallet\n" +
-SPACING + "seed or master public key.",
+"DEPRECATED",
+"ELECTRUM STYLE DETERMINISTIC KEYS AND ADDRESSES",
+"Generate a public key deterministically from a wallet\n" + SPACING + "seed or master public key.",
 
 """\
 Usage: sx genpub N [CHANGE]
@@ -298,7 +322,8 @@ The output is non-deterministic if any other input is used.
 ),
 
 "genaddr": (
-"DETERMINISTIC KEYS AND ADDRESSES",
+"DEPRECATED",
+"ELECTRUM STYLE DETERMINISTIC KEYS AND ADDRESSES",
 "Generate a Bitcoin address deterministically from a wallet\n" +
 SPACING + "seed or master public key.",
 
@@ -314,6 +339,7 @@ The output is non-deterministic if any other input is used.
 ),
 
 "qrcode": (
+"UTILITY",
 "MISC",
 "Generate Bitcoin QR codes offline.",
 
@@ -329,6 +355,7 @@ Make sure you have the program 'qrencode' installed first.
 ),
 
 "fetch-block-header": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Fetch raw block header.",
 
@@ -341,6 +368,7 @@ the load balancer backend.\
 ),
 
 "fetch-last-height": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Fetch the last block height.",
 
@@ -353,6 +381,7 @@ the load balancer backend.\
 ),
 
 "bci-fetch-last-height": (
+"ONLINE (BLOCKCHAIN.INFO)",
 "BLOCKCHAIN QUERIES (blockchain.info)",
 "Fetch the last block height using blockchain.info.",
 
@@ -364,6 +393,7 @@ Fetch the last block height using blockchain.info.\
 ),
 
 "fetch-stealth": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Fetch a stealth information using a network connection to\n" +
 SPACING + "make requests against the obelisk load balancer backend.",
@@ -384,6 +414,7 @@ EXAMPLE:
 ),
 
 "fetch-transaction": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Fetch a raw transaction using a network connection to\n" +
 SPACING + "make requests against the obelisk load balancer backend.",
@@ -402,6 +433,7 @@ EXAMPLE:
 ),
 
 "fetch-transaction-index": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Fetch block height and index in block of transaction.",
 
@@ -414,6 +446,7 @@ against the load balancer backend.\
 ),
 
 "balance": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Show balance of a Bitcoin address in satoshis.",
 
@@ -437,6 +470,7 @@ Example:
 ),
 
 "history": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Get list of output points, values, and their spends for an\n" +
 SPACING + "address. grep can filter for just unspent outputs which can\n" +
@@ -464,6 +498,7 @@ Example:
 ),
 
 "bci-history": (
+"ONLINE (BLOCKCHAIN.INFO)",
 "BLOCKCHAIN QUERIES (blockchain.info)",
 "Get list of output points, values, and their spends\n" +
 SPACING + "from blockchain.info",
@@ -475,6 +510,7 @@ Get list of output points, values and spends using blockchain.info.\
 ),
 
 "get-utxo": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN QUERIES",
 "Get enough unspent transaction outputs from a given set of\n" +
 SPACING + "addresses to pay a given number of satoshis",
@@ -486,7 +522,8 @@ Get enough unspent transaction outputs from a given set of addresses to pay a gi
 ),
 
 "get-pubkey": (
-"LOOSE KEYS AND ADDRESSES",
+"OFFLINE KEYS AND ADDRESSES",
+"BASIC",
 "Get the pubkey of an address if available",
 
 """\
@@ -496,7 +533,8 @@ Get the pubkey of an address if available\
 ),
 
 "mktx": (
-"CREATE TRANSACTIONS",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Create an unsigned tx.",
 
 """\
@@ -518,8 +556,9 @@ The VALUE field is in Satoshis.\
 ),
 
 "wif-to-secret": (
-"LOOSE KEYS AND ADDRESSES",
-"Convert a Wallet. Import. Format to secret exponent value.",
+"UTILITY",
+"FORMAT (WIF)",
+"Convert a Wallet Import Format to secret exponent value.",
 
 """\
 Usage: echo WIF | sx wif-to-secret
@@ -528,8 +567,9 @@ Usage: echo WIF | sx wif-to-secret
 ),
 
 "secret-to-wif": (
-"LOOSE KEYS AND ADDRESSES",
-"Convert a secret exponent value to Wallet. Import. Format.",
+"UTILITY",
+"FORMAT (WIF)",
+"Convert a secret exponent value to Wallet Import Format",
 
 """\
 Usage: echo SECRET | sx secret-to-wif
@@ -538,7 +578,8 @@ Usage: echo SECRET | sx secret-to-wif
 ),
 
 "sha256": (
-"MISC",
+"UTILITY",
+"HASHES",
 "Perform SHA256 hash of data.",
 
 """\
@@ -549,7 +590,8 @@ Perform SHA256 hash of data.\
 ),
 
 "mpk": (
-"DETERMINISTIC KEYS AND ADDRESSES",
+"DEPRECATED",
+"ELECTRUM STYLE DETERMINISTIC KEYS AND ADDRESSES",
 "Extract a master public key from a deterministic wallet seed.",
 
 """\
@@ -566,7 +608,8 @@ Extract a master public key from a deterministic wallet seed.
 ),
 
 "newkey": (
-"LOOSE KEYS AND ADDRESSES",
+"OFFLINE KEYS AND ADDRESSES",
+"BASIC",
 "Create a new private key.",
 
 """\
@@ -579,7 +622,8 @@ Usage: sx newkey
 ),
 
 "newseed": (
-"DETERMINISTIC KEYS AND ADDRESSES",
+"DEPRECATED",
+"ELECTRUM STYLE DETERMINISTIC KEYS AND ADDRESSES",
 "Create a new deterministic wallet seed.",
 
 """\
@@ -592,6 +636,7 @@ Usage: sx newseed
 ),
 
 "sendtx-node": (
+"ONLINE (BITCOIN P2P)",
 "BLOCKCHAIN UPDATES",
 "Send transaction to a single node.",
 
@@ -608,7 +653,8 @@ Send transaction to one Bitcoin node on localhost port 4009:
 ),
 
 "showblkhead": (
-"MISC",
+"OFFLINE BLOCKCHAIN",
+"HEADERS",
 "Show the details of a block header.",
 
 """\
@@ -633,7 +679,8 @@ Usage: sx showblkhead FILENAME
 ),
 
 "showtx": (
-"TRANSACTION PARSING",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Show the details of a transaction.",
 
 """\
@@ -667,8 +714,9 @@ Example:
 ),
 
 "decode-addr": (
-"FORMAT",
-"Decode an address to its internal RIPEMD representation.",
+"UTILITY",
+"FORMAT (BASE58CHECK)",
+"Decode a address from base58check form to internal RIPEMD representation",
 
 """\
 Usage: sx decode-addr ADDRESS
@@ -676,8 +724,9 @@ Decode an address to its internal RIPEMD representation.\
 """),
 
 "embed-addr": (
-"FORMAT",
-"Generate an address used for embedding record of data into the blockchain.",
+"OFFLINE KEYS AND ADDRESSES",
+"BASIC",
+"Generate an address used for embedding record of data into the blockchain",
 
 """\
 Usage: sx embed-addr
@@ -694,8 +743,9 @@ as a record of the data passed in.
 """),
 
 "encode-addr": (
-"FORMAT",
-"Encode an address to base58check form.",
+"UTILITY",
+"FORMAT (BASE58CHECK)",
+"Encode an address from internal RIPEMD representation to base58check form",
 
 """\
 Usage: sx encode-addr HASH [VERSION]
@@ -703,7 +753,8 @@ Encode an address to base58check form.\
 """),
 
 "validsig": (
-"VALIDATE",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Validate a transaction input's signature.",
 
 """\
@@ -712,20 +763,38 @@ Validate a transaction input's signature.\
 """),
 
 "brainwallet": (
-"BRAINWALLET",
-"Make a private key from a brainwallet",
+"OFFLINE KEYS AND ADDRESSES",
+"BRAIN STORAGE",
+"Make 256 bit bitcoin private key from an arbitrary passphrase.",
 
 """\
 Usage: sx brainwallet password
        sx brainwallet username password
        sx brainwallet password --algo slowsha
        sx brainwallet username password --algo slowsha
-Make a private key from a brainwallet.\
+Make 256 bit bitcoin private key from an arbitrary passphrase, using sha256.
+Unsafe if passphrase is low in entropy.
+See diceware and xkcd correct horse battery staple for advice on entropy and generating a safe brainwallet.\
 """
 ),
 
+#"sign-transaction": (
+#"OFFLINE (work in progress)",
+#"SIGNING WALLET",
+#"Sign a transaction. Output is suitable for sending to bitcoin network.",
+
+#"""\
+#Usage: cat unsigned.tx | sx sign-transaction --wallet=sx.wallet.gpg --gpgkey=~/. 
+#       sx brainwallet username password
+#       sx brainwallet password --algo slowsha
+#       sx brainwallet username password --algo slowsha
+#Make a private key from a brainwallet.\
+#"""
+#),
+
 "set-input": (
-"CREATE TRANSACTIONS",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Set a transaction input.",
 
 """\
@@ -735,7 +804,8 @@ See sx help sign-input for an example.\
 """),
 
 "sign-input": (
-"CREATE TRANSACTIONS",
+"OFFLINE TRANSACTIONS",
+"SCRIPTING",
 "Sign a transaction input.",
 
 """\
@@ -795,8 +865,9 @@ Now the input script is prepared, and the transaction is signed.
 ),
 
 "mnemonic": (
-"BRAINWALLET",
-"Work with Electrum compatible mnemonics (12 words wallet seed).",
+"OFFLINE KEYS AND ADDRESSES",
+"BRAIN STORAGE",
+"Make 12 word mnemonic out of 128 bit electrum or bip32 seed.",
 
 """\
 Usage: sx mnemonic
@@ -813,6 +884,7 @@ stumble time cookie" | sx mnemonic
 ),
 
 "watchtx": (
+"ONLINE (OBELISK)",
 "BLOCKCHAIN WATCHING",
 "Watch transactions from the network searching for a certain hash.",
 
@@ -824,6 +896,7 @@ Watch transactions from the network searching for a certain hash.\
 ),
 
 "stealth-initiate": (
+"OFFLINE KEYS AND ADDRESSES",
 "STEALTH",
 "Initiate a new stealth payment.",
 
@@ -835,6 +908,7 @@ Initiate a new stealth payment.\
 ),
 
 "stealth-uncover": (
+"OFFLINE KEYS AND ADDRESSES",
 "STEALTH",
 "Uncover a stealth address.",
 
@@ -846,6 +920,7 @@ Uncover a stealth address.\
 ),
 
 "stealth-uncover-secret": (
+"OFFLINE KEYS AND ADDRESSES",
 "STEALTH",
 "Uncover a stealth secret.",
 
@@ -857,6 +932,7 @@ Uncover a stealth secret.\
 ),
 
 "stealth-newkey": (
+"OFFLINE KEYS AND ADDRESSES",
 "STEALTH",
 "Generate new stealth keys and an address.",
 
@@ -868,6 +944,7 @@ Generate new stealth keys and an address.\
 ),
 
 "stealth-addr": (
+"OFFLINE KEYS AND ADDRESSES",
 "STEALTH",
 "See a stealth address from given input.",
 
@@ -882,6 +959,7 @@ See a stealth address from given input.
 ),
 
 "stealth-show-addr": (
+"OFFLINE KEYS AND ADDRESSES",
 "STEALTH",
 "Show details for a stealth address.",
 
@@ -893,7 +971,8 @@ Show details for a stealth address.\
 ),
 
 "hd-seed": (
-"HD KEYS",
+"OFFLINE KEYS AND ADDRESSES",
+"HD / BIP32",
 "Create a random new HD key.",
 
 """\
@@ -904,7 +983,8 @@ Create a random new HD key.\
 ),
 
 "hd-priv": (
-"HD KEYS",
+"OFFLINE KEYS AND ADDRESSES",
+"HD / BIP32",
 "Create an private HD key from another HD private key.",
 
 """\
@@ -915,18 +995,20 @@ Create an private HD key from another HD private key.\
 ),
 
 "hd-pub": (
-"HD KEYS",
+"OFFLINE KEYS AND ADDRESSES",
+"HD / BIP32",
 "Create an HD public key from another HD private or public key.",
 
 """\
 Usage: sx hd-pub [--hard] INDEX
 
-Create an HD public key from another HD private or public key.\
+Create an HD public key from another HD private or public key.
 """
 ),
 
 "hd-to-address": (
-"HD KEYS",
+"OFFLINE KEYS AND ADDRESSES",
+"HD / BIP32",
 "Convert an HD public or private key to a Bitcoin address.",
 
 """\
@@ -937,7 +1019,8 @@ Convert an HD public or private key to a Bitcoin address.\
 ),
 
 "hd-to-wif": (
-"HD KEYS",
+"OFFLINE KEYS AND ADDRESSES",
+"HD / BIP32",
 "Convert an HD private key to a WIF private key.",
 
 """\
@@ -948,6 +1031,7 @@ Convert an HD private key to a WIF private key.\
 ),
 
 "ec-multiply": (
+"UTILITY",
 "EC MATH",
 "Multiply an integer and a point together.",
 
@@ -959,6 +1043,7 @@ Multiply an integer and a point together.\
 ),
 
 "ec-tweak-add": (
+"UTILITY",
 "EC MATH",
 "Calculate the result of POINT + INTEGER * G.",
 
@@ -970,6 +1055,7 @@ Calculate the result of POINT + INTEGER * G.\
 ),
 
 "ec-add-modp": (
+"UTILITY",
 "EC MATH",
 "Calculate the result of INTEGER + INTEGER.",
 
@@ -989,20 +1075,30 @@ def display_usage():
     print
     print "The sx commands are:"
     print
-    categorised = {}
+    categorized={}
     for cmd in sorted(command_list.iterkeys()):
-        category = command_list[cmd][0]
-        if category not in categorised:
-            categorised[category] = []
-        short_desc = command_list[cmd][1]
+        category =    command_list[cmd][0]
+        subcategory = command_list[cmd][1]
+        if category not in categorized:
+            categorized[category] = {}
+        subcategorized = categorized[category]
+
+        if subcategory not in subcategorized:
+            subcategorized[subcategory] = []
+
+
+        short_desc = command_list[cmd][2]
         line = "   %s" % cmd
         line += " " * (len(SPACING) - len(cmd) - 3)
         line += short_desc
-        categorised[category].append(line)
-    for category, lines in categorised.iteritems():
+        categorized[category][subcategory].append(line)
+        
+    for category, subcategories in sorted(categorized.iteritems()):
         print category
-        for line in lines:
-            print line
+        for subcategory, lines in sorted(subcategories.iteritems()):
+            print "  " , subcategory
+            for line in lines:
+                print "    " , line
         print
     print "See 'sx help COMMAND' for more information on a specific command."
     print
@@ -1010,7 +1106,7 @@ def display_usage():
 
 def display_help(command):
     assert command in command_list
-    long_desc = command_list[command][2]
+    long_desc = command_list[command][3]
     print long_desc
     return 0
 
