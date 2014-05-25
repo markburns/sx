@@ -8,4 +8,4 @@ It's easy to identify the necessary packages, just inspect the project's `packag
 
 There are also dependencies on [libbitcoin](https://github.com/libbitcoin/libbitcoin), [libwallet](https://github.com/libbitcoin/libwallet) and [obelisk](https://github.com/libbitcoin/obelisk). These are not yet packaged on NuGet. You will need to git these and build them each in sibling repo directories this this repo (by default).
 
-Note that the dynamic builds are available but are not yet functional. The develop branch is more current and it contains a build script for all non-dynamic build variants. Note that if you use the develop branch you must use it for the libbitcoin repositories as well.
+Dynamic builds are available but not yet functional. The develop branch is more current and contains a build script for all non-dynamic build variants. If you use the develop branch you must use it for the libbitcoin dependencies as well.
