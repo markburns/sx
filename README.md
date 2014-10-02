@@ -70,7 +70,7 @@ network as a fee. This is how fees work internally in Bitcoin.
     version: 1  locktime: 0
     Input:
       previous output:
-    97e06e49dfdd26c5a904670971ccf4c7fe7d9da53cb379bf9b442fc9427080b3:0
+    97e06e49dfdd26c5a904670971ccf4c7fe7d9da53cb379bf9b442fc9427080b3:1
       script:   sequence: 4294967295
     Output:
       value: 90000
@@ -91,7 +91,7 @@ We will now sign the first input using our private key.
     version: 1  locktime: 0
     Input:
       previous output:
-    97e06e49dfdd26c5a904670971ccf4c7fe7d9da53cb379bf9b442fc9427080b3:0
+    97e06e49dfdd26c5a904670971ccf4c7fe7d9da53cb379bf9b442fc9427080b3:1
       script: [
       304602210083f8b5131f6399cdc01ed8368f6137f288f771e40834a94d65cee6b380fec873022100da5ed6d1d283f228752a88c2d6f629587b2a6fbc102202ae7c20f48af7c0533c01
     ] [
