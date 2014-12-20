@@ -76,7 +76,7 @@ install_dependencies(){
     if [ "$flavour_id" = "debian" ]; then
         D_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
-            libboost-all-dev pkg-config libcurl4-openssl-dev \
+            libboost-all-dev pkg-config libgmp-dev libcurl4-openssl-dev \
             libleveldb-dev libconfig++-dev libncurses5-dev wget"
         if [ "$ROOT_INSTALL" = 1 ]; then
             apt-get -y remove libzmq*
@@ -92,7 +92,7 @@ install_dependencies(){
     elif [ "$flavour_id" = "ubuntu" ]; then
         U_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
-            pkg-config libcurl4-openssl-dev libleveldb-dev \
+            pkg-config libgmp-dev libcurl4-openssl-dev libleveldb-dev \
             libconfig++8-dev libncurses5-dev libboost$U_BOOST-all-dev wget"
         if [ "$ROOT_INSTALL" = 1 ]; then
             apt-get -y remove libzmq*
@@ -268,13 +268,13 @@ install_libsecp256k1(){
         echo " --> Updating secp256k1..."
         echo
         cd secp256k1-git
-        git remote set-url origin https://github.com/bitcoin/secp256k1.git
+        git remote set-url origin https://github.com/libbitcoin/secp256k1.git
         git pull --rebase
     else
         echo
         echo " --> Downloading secp256k1 from git..."
         echo
-        git clone https://github.com/bitcoin/secp256k1.git secp256k1-git
+        git clone https://github.com/libbitcoin/secp256k1.git secp256k1-git
     fi
     cd $SRC_DIR/secp256k1-git
     echo
@@ -303,7 +303,7 @@ install_libbitcoin(){
         echo
         echo " --> Downloading libbitcoin from git..."
         echo
-        git clone https://github.com/libbitcoin/libbitcoin.git libbitcoin-git
+        git clone --branch version1 https://github.com/libbitcoin/libbitcoin.git libbitcoin-git
     fi
     cd $SRC_DIR/libbitcoin-git
     echo
