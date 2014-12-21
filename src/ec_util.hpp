@@ -1,3 +1,4 @@
+#include <iostream>
 #include <bitcoin/bitcoin.hpp>
 using namespace bc;
 
