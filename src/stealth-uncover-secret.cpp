@@ -1,3 +1,4 @@
+#include <iostream>
 #include <bitcoin/bitcoin.hpp>
 #include <wallet/wallet.hpp>
 using namespace libbitcoin;
