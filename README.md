@@ -15,7 +15,7 @@ these tools to handle the core functionality. I believe the more we
 give good tools to the community, the more we can decentralise
 development and increase access to the core technology for all types.
 
-Use this bash shell script to install sx: http://sx.dyne.org/install-sx.sh
+Use this bash shell script to install sx: https://raw.githubusercontent.com/spesmilo/sx/master/install-sx.sh
 
 Cheat sheet:
 
