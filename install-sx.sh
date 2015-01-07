@@ -310,7 +310,7 @@ install_libbitcoin(){
     echo " --> Beginning build process now...."
     echo
     autoreconf -i
-    ./configure --enable-leveldb --prefix $INSTALL_PREFIX --with-libsecp256k1=$INSTALL_PREFIX
+    ./configure --enable-leveldb --prefix $INSTALL_PREFIX
     make
     make install
     $RUN_LDCONFIG
