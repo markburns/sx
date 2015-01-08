@@ -209,7 +209,7 @@ install_libsecp256k1(){
             echo " --> Updating secp256k1..."
             echo
             cd secp256k1-git
-            git remote set-url origin https://github.com/bitcoin/secp256k1.git
+            git remote set-url origin https://github.com/libbitcoin/secp256k1.git
             git pull --rebase
 	else
             echo
@@ -274,13 +274,13 @@ install_libwallet(){
             echo " --> Updating Libwallet..."
             echo
             cd libwallet-git
-            git remote set-url origin https://github.com/libbitcoin/libwallet.git
+            git remote set-url origin https://github.com/spesmilo/libwallet.git
             git pull --rebase
 	else
             echo
             echo " --> Downloading Libwallet from git..."
             echo
-            git clone https://github.com/libbitcoin/libwallet.git libwallet-git -b version1
+            git clone https://github.com/spesmilo/libwallet.git libwallet-git -b version1
 	fi
     fi
 
