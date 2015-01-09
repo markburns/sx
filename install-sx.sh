@@ -360,6 +360,13 @@ show_finish_install_info(){
     echo " To setup an obelisk node, you will need to run obelisk-server."
     echo " Run <sudo bash $SRC_DIR/obelisk-git/scripts/setup.sh> to create, configure and start the daemons."
     echo
+    echo " **************************************************************"
+    echo " * libbitcoin and SX 1.0 are now installed!                   *"
+    echo " * If you wish to upgrade to the latest versions, then        *"
+    echo " * check out https://github.com/libbitcoin/                   *"
+    echo " * SX is now renamed libbitcoin-explorer (BX)                 *"
+    echo " **************************************************************"
+    echo
 }
 
 install_dependencies
