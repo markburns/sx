@@ -27,6 +27,7 @@ ROOT_INSTALL=1
 TOOLCHAIN_BRANCH="version1"
 TOOLCHAIN_BRANCH_KEEP=0
 TOOLCHAIN_TESTNET=
+NCORE=`nproc`
 
 usage() {
     echo " [+] Install script usage:"
@@ -128,7 +129,7 @@ install_dependencies(){
     if [ "$flavour_id" = "debian" ]; then
         D_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
-            libboost-all-dev pkg-config libcurl4-openssl-dev \
+            libboost-all-dev pkg-config libgmp-dev libcurl4-openssl-dev \
             libleveldb-dev libconfig++-dev libncurses5-dev wget"
         if [ "$ROOT_INSTALL" = 1 ]; then
             apt-get -y remove libzmq*
@@ -144,7 +145,7 @@ install_dependencies(){
     elif [ "$flavour_id" = "ubuntu" ]; then
         U_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
-            pkg-config libcurl4-openssl-dev libleveldb-dev \
+            pkg-config libgmp-dev libcurl4-openssl-dev libleveldb-dev \
             libconfig++8-dev libncurses5-dev libboost$U_BOOST-all-dev wget"
         if [ "$ROOT_INSTALL" = 1 ]; then
             apt-get -y remove libzmq*
@@ -225,7 +226,7 @@ install_libsecp256k1(){
     echo
     autoreconf -i
     ./configure --prefix $INSTALL_PREFIX
-    make
+    make -j $NCORE
     make install
     $RUN_LDCONFIG
     echo
@@ -257,8 +258,8 @@ install_libbitcoin(){
     echo
     [ $TOOLCHAIN_BRANCH_KEEP -eq 0 ] && git checkout $TOOLCHAIN_BRANCH
     autoreconf -i
-    ./configure --enable-leveldb --prefix $INSTALL_PREFIX --with-libsecp256k1=$INSTALL_PREFIX $TOOLCHAIN_TESTNET
-    make
+    ./configure --enable-leveldb --prefix $INSTALL_PREFIX $TOOLCHAIN_TESTNET
+    make -j $NCORE
     make install
     $RUN_LDCONFIG
     echo
@@ -291,7 +292,7 @@ install_libwallet(){
     [ $TOOLCHAIN_BRANCH_KEEP -eq 0 ] && git checkout $TOOLCHAIN_BRANCH
     autoreconf -i
     ./configure --prefix $INSTALL_PREFIX $TOOLCHAIN_TESTNET
-    make
+    make -j $NCORE
     make install
     $RUN_LDCONFIG
     echo
@@ -325,7 +326,7 @@ install_sx(){
     [ $TOOLCHAIN_BRANCH_KEEP -eq 0 ] && git checkout $TOOLCHAIN_BRANCH
     autoreconf -i
     ./configure --sysconfdir $CONF_DIR --prefix $INSTALL_PREFIX
-    make
+    make -j $NCORE
     make install
     $RUN_LDCONFIG
     if [ "$flavour_id" = "arch" ]; then
