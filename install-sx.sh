@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to install libbitcoin, libwallet, obelisk and sx tools.
+# Script to install libbitcoin, libwallet and sx tools.
 #
 # Install dependencies and compiles the source code from git for Debian 7 / Ubuntu 13.10 or Fedora GNU/Linux distributions.
 #
@@ -38,7 +38,7 @@ usage() {
     echo
     echo " Default path for installation is $INSTALL_PREFIX"
     echo " Default path for the conf files is $CONF_DIR"
-    echo " Stable versions of toolchain packages (from git $TOOLCHAIN_BRANCH branches) will be installed for libbitcoin, libwallet, obelisk and sx tools."
+    echo " Stable versions of toolchain packages (from git $TOOLCHAIN_BRANCH branches) will be installed for libbitcoin, libwallet and sx tools."
     echo
     echo " Optional arguments:"
     echo " --prefix <path>  Path prefix to install to, e.g. /home/user/usr"
@@ -341,13 +341,11 @@ show_finish_install_info(){
     echo " --> Installation finished!"
     echo
     echo " Config Files are in: $CONF_DIR"
-    echo "   obelisk configuration files: $CONF_DIR/obelisk/*.cfg"
     echo "   sx configuration file: ~/.sx.cfg (see $INSTALL_PREFIX/share/sx/sx.cfg for an example config file)"
     echo
     echo " Documentation available in $INSTALL_PREFIX/share/doc:"
     echo "   libbitcoin: $INSTALL_PREFIX/share/doc/libbitcoin/"
     echo "   libwallet:  $INSTALL_PREFIX/share/doc/libwallet/"
-    echo "   obelisk:    $INSTALL_PREFIX/share/doc/obelisk/"
     echo "   sx:         $INSTALL_PREFIX/share/doc/sx/"
     echo
     if [ "$ROOT_INSTALL" = "0" ]; then
@@ -357,9 +355,6 @@ show_finish_install_info(){
         echo "   export PKG_CONFIG_PATH=$TOOLCHAIN_PKG_CONFIG_PATH"
         echo "   export PATH=$BIN_DIR:\$PATH"
     fi
-    echo
-    echo " To setup an obelisk node, you will need to run obelisk-server."
-    echo " Run <sudo bash $SRC_DIR/obelisk-git/scripts/setup.sh> to create, configure and start the daemons."
     echo
     echo " **************************************************************"
     echo " * libbitcoin and SX 1.0 are now installed!                   *"
