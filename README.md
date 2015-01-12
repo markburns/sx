@@ -25,6 +25,12 @@ To see a list of the sx commands type:
 
     $ sx help
 
+About this version
+------------------
+After the release of SX 1.0, this project was renamed to BX ([libbitcoin-explorer](https://github.com/libbitcoin/libbitcoin-explorer)).
+
+Now SX is just maintained and won't include new features. The development takes place in the BX repository.
+If you wish to upgrade to the latest versions, then check out https://github.com/libbitcoin/.
 
 Simple Bitcoin Client
 ---------------------
@@ -77,7 +83,7 @@ network as a fee. This is how fees work internally in Bitcoin.
       script: dup hash160 [ 18c0bd8d1818f1bf99cb1df2269c645318ef7b73 ] equalverify
     checksig
       address: 13Ft7SkreJY9D823NPm4t6D1cBqLYTJtAe
-      
+
 Note that the input script is empty.
 
 We will now sign the first input using our private key.
@@ -291,4 +297,3 @@ Or to send it via an obelisk server.
     $ sx sendtx-obelisk signed-tx
 
 https://blockchain.info/tx/d646f82bd5fbdb94a36872ce460f97662b80c3050ad3209bef9d1e398ea277ab
-
