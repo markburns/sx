@@ -19,7 +19,7 @@ Use this bash shell script to install sx: https://raw.githubusercontent.com/spes
 
 Cheat sheet:
 
-    http://i.imgur.com/8R0cfuw.png
+    ![Cheat sheet](http://i.imgur.com/8R0cfuw.png)
 
 To see a list of the sx commands type:
 
